@@ -1,0 +1,27 @@
+name: Cypress Tests
+on:
+  push:
+    branches: [ git_workflow ]
+  pull_request:
+    branches: [ git_workflow ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Cypress
+        run: npm install cypress --save-dev
+      - name: Run Cypress tests
+        run: npx cypress run
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: my-report
+          path: my-report/
+          retention-days: 30
