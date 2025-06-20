@@ -22,12 +22,21 @@ describe("create user test", async function () {
             },
             body: userPayLoad
         }).then((response) => {
+            // Assert status code
+            expect(response.status).to.eq(201);
+
+            // Assert response body is an object
+            expect(response.body).to.be.an('object');
+
+            // Assert the response contains an id
+            expect(response.body).to.have.property('id');
+            userPayLoad['id'] = response.body['id'];
+
             let usersData: any[] = response.body;
             Object.keys(usersData).forEach(
                 entry => {
-                    if (entry === 'id')
-                        userPayLoad['id'] = usersData['id'];
-                    cy.log(`${entry} : ${usersData[entry]}`)
+                    if (entry !== 'password')
+                        expect(usersData[entry]).to.equal(userPayLoad[entry])
                 }
             )
         })

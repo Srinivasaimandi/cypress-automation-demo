@@ -4,7 +4,7 @@
  * @author: srinivasaimandi
  */
 
-describe("get user test", async function () {
+describe("fetch user test", async function () {
     it("fetch user by id", async function () {
         let expectedUser = {
             'id': 3,
@@ -21,6 +21,12 @@ describe("get user test", async function () {
                 'x-api-key': 'b7f2e1a4-9c3d-4e8a-8f2e-2c1a7d6b5e9c'
             }
         }).then((response) => {
+            // Assert status code
+            expect(response.status).to.eq(200);
+            // Assert response body is an object
+            expect(response.body).to.be.an('object');
+            
+            // Assert all expected fields are present and match
             let usersData: any[] = response.body;
             Object.keys(usersData).forEach(
                 entry => { 

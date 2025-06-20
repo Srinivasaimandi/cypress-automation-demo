@@ -19,14 +19,18 @@ describe("update user test", async function () {
             },
             body: userPayLoad
         }).then((response) => {
-            let usersData: any[] = response.body;
-            Object.keys(usersData).forEach(
-                entry => {
-                    if (entry === 'id')
-                        userPayLoad['id'] = usersData['id'];
-                    cy.log(`${entry} : ${usersData[entry]}`)
-                }
-            )
+            // Assert status code
+            expect(response.status).to.eq(200);
+
+            // Assert response body is an object
+            expect(response.body).to.be.an('object');
+
+            // Assert the updated field matches the payload
+            expect(response.body.email).to.equal(userPayLoad.email);
+
+            // Optionally, assert the response contains an id and it's correct
+            expect(response.body).to.have.property('id');
+            expect(response.body.id).to.equal(1);
         })
     })
 })
