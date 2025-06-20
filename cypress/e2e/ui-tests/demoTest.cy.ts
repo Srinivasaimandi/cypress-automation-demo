@@ -1,6 +1,6 @@
 /// <reference types = "cypress" />
 
-import * as CONSTANTS from "./pageobjects/Constants";
+import * as CONSTANTS from "../pageobjects/Constants";
 
 /**
  * @author: srinivasaimandi
@@ -9,10 +9,9 @@ import * as CONSTANTS from "./pageobjects/Constants";
 const validUser = CONSTANTS.SAUCE_LABS.USERS["standard user"];
 const password = CONSTANTS.SAUCE_LABS.PASSWORD;
 
-describe.skip("desc 1", async function () {
+describe("desc 1", async function () {
     it("test 1", async function () {
         cy.visit("http://saucedemo.com");
-        cy.wait(5000);
         cy.url().should('include', 'saucedemo');
         cy.title().should('contains', 'Swag Labs');
         cy.get("#user-name").type(validUser);
