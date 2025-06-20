@@ -19,3 +19,8 @@ This repository contains demo test automation scripts built with Cypress for the
 - run the below command 
 
   **```npx cypress run```**  
+
+
+[1]:https://www.geeksforgeeks.org/install-node-js-on-windows/
+[2]:https://www.geeksforgeeks.org/installation-of-node-js-on-linux/
+[3]:https://www.geeksforgeeks.org/how-to-install-nodejs-on-macos/
