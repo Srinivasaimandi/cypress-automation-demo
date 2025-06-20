@@ -11,13 +11,16 @@
     "url": "git+https://github.com/Srinivasaimandi/cypress-automation-demo.git"
   },
   "license": "ISC",
-  "author": "simandi",
+  "author": "srinivasaimandi",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "cypress": "^14.4.0"
+    "cypress": "^14.5.0"
+  },
+  "dependencies": {
+    "typescript": "^5.8.3"
   }
 }
