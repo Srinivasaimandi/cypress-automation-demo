@@ -1,14 +1,14 @@
 name: Trigger Tests Manually
 on:
   workflow_dispatch:
-    inputs:
-      name: 
-        type: choice
-        description: choose the type of tests to run
-        options:
-          - demo
-          - api_demo
-          - ui_demo
+    # inputs:
+    #   name: 
+    #     type: choice
+    #     description: choose the type of tests to run
+    #     options:
+    #       - demo
+    #       - api_demo
+    #       - ui_demo
 jobs:
   test:
     timeout-minutes: 60
