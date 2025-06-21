@@ -1,4 +1,5 @@
 /// <reference types = "cypress" />
+/// <reference types = "cypress-xpath" />
 
 import * as CONSTANTS from "../pageobjects/Constants";
 
@@ -14,7 +15,7 @@ describe("desc 1", async function () {
         cy.visit("http://saucedemo.com");
         cy.url().should('include', 'saucedemo');
         cy.title().should('contains', 'Swag Labs');
-        cy.get("#user-name").type(validUser);
+        cy.xpath(".//*[@id='user-name']").type(validUser);
         cy.get("#password").type(password);
         cy.get("#login-button").click();
     })
