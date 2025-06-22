@@ -14,7 +14,7 @@ on:
 
 jobs:
   setup-api:
-    uses: ./.github/workflows/setup-express-api.yml
+    uses: Srinivasaimandi/srinivasaimandi-reusable-workflows/.github/workflows/setup-express-api.yml@main
 
   run-tests:
     needs: setup-api
