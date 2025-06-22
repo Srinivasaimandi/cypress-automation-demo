@@ -1,0 +1,32 @@
+# .github/workflows/setup-express-api.yml
+name: Setup Express API
+
+on:
+  workflow_call:
+
+jobs:
+  setup-api:
+    runs-on: ubuntu-latest
+    outputs:
+      app-path: ${{ steps.set-output.outputs.path }}
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Clone express-api-demo app
+        run: git clone http://github.com/Srinivasaimandi/express-api-demo.git
+
+      - name: Install and start server
+        run: |
+          cd express-api-demo
+          npm install
+          npm start &
+          echo "API server started"
+
+      - id: set-output
+        run: echo "path=express-api-demo" >> $GITHUB_OUTPUT
