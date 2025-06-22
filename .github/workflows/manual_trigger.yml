@@ -1,3 +1,4 @@
+# .github/workflows/manual-trigger.yml
 name: Manual Trigger
 
 on:
@@ -12,8 +13,11 @@ on:
           - demo
 
 jobs:
-  run-automation:
-    timeout-minutes: 60
+  setup-api:
+    uses: ./.github/workflows/setup-express-api.yml
+
+  run-tests:
+    needs: setup-api
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
@@ -23,16 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-
-      - name: Clone express-api-demo app
-        run: git clone http://github.com/Srinivasaimandi/express-api-demo.git
-
-      - name: Install and start server
-        run: |
-          cd express-api-demo
-          npm install
-          npm start &
-          echo "API server started"
 
       - name: Install dependencies
         run: npm ci
