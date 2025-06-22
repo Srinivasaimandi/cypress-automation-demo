@@ -2,6 +2,7 @@
 /// <reference types = "cypress-xpath" />
 
 import * as CONSTANTS from "../pageobjects/Constants";
+import { LoginPage } from "../pageobjects/sauce_demo/LoginPage.pageobject";
 
 /**
  * @author: srinivasaimandi
@@ -12,11 +13,9 @@ const password = CONSTANTS.SAUCE_LABS.PASSWORD;
 
 describe("desc 1", async function () {
     it("test 1", async function () {
-        cy.visit("http://saucedemo.com");
-        cy.url().should('include', 'saucedemo');
-        cy.title().should('contains', 'Swag Labs');
-        cy.xpath(".//*[@id='user-name']").type(validUser);
-        cy.get("#password").type(password);
-        cy.get("#login-button").click();
+
+        let loginPage = new LoginPage();
+        loginPage.load();
+        loginPage.login(validUser, password);
     })
 })
