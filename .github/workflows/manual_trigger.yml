@@ -3,7 +3,13 @@ name: Manual Trigger
 on:
   workflow_dispatch:
     inputs:
-      name:
+      express-api-branch:
+        type: choice
+        description: Choose the type of tests to run
+        options:
+          - main
+          - work-bench
+      test-type:
         type: choice
         description: Choose the type of tests to run
         options:
@@ -25,7 +31,7 @@ jobs:
           node-version: lts/*
 
       - name: Clone express-api-demo app
-        run: git clone http://github.com/Srinivasaimandi/express-api-demo.git
+        run: git clone -b ${{github.event.inputs.express-api-branch}} http://github.com/Srinivasaimandi/express-api-demo.git
 
       - name: Install and start server
         run: |
