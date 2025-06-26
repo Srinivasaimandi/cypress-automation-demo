@@ -1,8 +1,8 @@
 # Cypress-Automation-Demo
 ## ❓What is this Repository about?
 This repository contains demo test automation scripts built with Cypress for the following websites
-  - http://saucedemo.com
-  - http://github.com/Srinivasaimandi/express-api-demo
+  - [Swag Labs: Sauce Demo](http://saucedemo.com)
+  - [Users API](http://github.com/Srinivasaimandi/express-api-demo)
 
 ## ⌘ Getting Started
 **Prerequisite**
