@@ -5,7 +5,7 @@ on:
     inputs:
       express-api-branch:
         type: choice
-        description: Choose the type of tests to run
+        description: choose the express-api app branch
         options:
           - main
           - work-bench
