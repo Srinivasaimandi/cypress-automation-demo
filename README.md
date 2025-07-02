@@ -2,7 +2,7 @@
 ## ❓What is this Repository about?
 This repository contains demo test automation scripts built with Cypress for the following websites
   - [Swag Labs: Sauce Demo](http://saucedemo.com)
-  - [Users API](http://github.com/Srinivasaimandi/express-api-demo)
+  - [Users App](http://github.com/Srinivasaimandi/users-app-demo)
 
 ## ⌘ Getting Started
 **Prerequisite**
