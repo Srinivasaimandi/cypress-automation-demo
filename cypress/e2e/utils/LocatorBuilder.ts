@@ -19,7 +19,7 @@ export class LocatorBuilder {
             // cy.log(`Returning locator of ${elementLocator.locatorType} for ${elementLocator.locator}`)
             return cy.xpath(elementLocator.locator);
         } else if (elementLocator.locatorType !== "css" || elementLocator.locatorType !== "xpath") {
-            return this.buildElement(elementLocator.alternateLocator);
+            return this.buildElement(elementLocator.alternate);
         }
     }
 }
